@@ -118,3 +118,33 @@ cat data.txt | base64 -d
 Password: pYfOY6HwUsDj5rL9UvyhU7MCmv8vN5Ro
 
 ## Level 11 -> 12
+
+ROT13 is a cipher method where a character is replaced by the 13 char from its position. So A becomes N, Z becoms M etc. Using tr command, we can write command to reverse it. N-ZA-M is basically making 2 sets and replacing N to Z with A to M and vice versa.
+
+cat data.txt | tr "N-ZA-Mn-za-m" "A-Za-z"
+
+![alt text](<Level 11 - 12.png>)
+
+Password: GROozWPO8QyN0mGrjUkID0WCYkZiQxrN
+
+## Level 12 -> 13
+
+Man this was tough! The file is first a hexdump, then gzip, bzip2, even tar. This file was compressed multiple times. Basically I had to decompress the files multiple times before the password can be retrived.
+
+xxd -r oldfile newfile
+
+file [File Name]
+
+cp file file.gz
+
+gunzip file.gz
+
+bunzip2 file.bz
+
+tar -xf file.tar
+
+![alt text](<Level 12 - 13.png>)
+
+Password: qQYQiHOBPR8zR61qxYqX45quvihF2uzk
+
+## Level 13 -> 14
