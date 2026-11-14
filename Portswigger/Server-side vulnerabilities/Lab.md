@@ -62,4 +62,40 @@ Even when some functionality are in different backend component, we can contact 
 
 ![alt text](<SSRF 2.1.png>)![alt text](<SSRF 2.2.png>)![alt text](<SSRF 2.3.png>)![alt text](<SSRF 2.4.png>)![alt text](<SSRF 2.5.png>)![alt text](<SSRF 2.6.png>)
 
-#
+# FILE UPLOAD VULNERABILITIES LAB 1
+
+If websites dont implement file upload check, meaning they do not check what file we are uploading, we can upoload web shell, like a php file with command. After uploading, we can request the file again to run the command!
+
+![alt text](<File 1.1.png>)![alt text](<File 1.2.png>)![alt text](<File 1.3.png>)![alt text](<File 1.4.png>)
+
+# FILE UPLOAD VULNERABILITIES LAB 2
+
+But there is usually some type of checking of the uploaded file to stop exploits. That can be thing such as checking specific type of file that website wants, like for image, Content-Type=image/png. When we upload php file, it changes the content type automatically. But if user can change this, we can easily change it to image/png, and it will be acceptable for the website.
+
+![alt text](<File 2.1.png>)![alt text](<File 2.2.png>)![alt text](<File 2.3.png>)![alt text](<File 2.4.png>)![alt text](<File 2.5.png>)![alt text](<File 2.6.png>)
+
+# OS COMMAND INJECTION LAB 1
+
+Some websites can query using os commands. We can exploit it easily, by appending other commands with the existing command, using |
+
+![alt text](<OS 1.1.png>)![alt text](<OS 1.2.png>)
+
+# SQL INJECTION LAB 1
+
+SQL Injection is a way to exploit database and find out information that is otherwise not visible. One such thing can be is finding out not released product yet. When we click category, it makes query about that specific category, and only released product. We can remove the constraint by modifying the request with '-- , where, -- means comment out the rest. We can also use OR 1=1, where 1=1 is always true, so it shows every released and unreleased product, not containing only specific category.
+
+category=Gifts'+OR+1=1--
+
+![alt text](<SQLI 1.1.png>)![alt text](<SQLI 1.2.png>)
+
+# SQL INJECTION LAB 2
+
+If there is not SQL injection check, we can exploit it even in logins. Lets say admin login with username and password, and it is checked using sql query. Like the previous lab, we can comment out the password entirely.
+
+username=administrator'--&password=test
+
+![alt text](<SQLI 2.1.png>)![alt text](<SQLI 2.2.png>)
+
+# THAT IS THE END. THIS WAS A VERY BASIC LAB COVERING LOTS OF BASIC WEB EXPLOITATION, SO I LEARNED A LOT OF HOW WEB AND WEB EXPLOITATION WORKS. SOMETIMES I STUMBLED, BUT IT WAS A VERY REWARDING EXPERIENCE!
+
+![alt text](<Server Side Complete.png>)
